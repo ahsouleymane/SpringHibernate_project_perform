@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title>SAISIR ETUDIANT</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/myStyle.min.css"
+          th:href="@{/css/myStyle.css}"/>
+</head>
+<body>
+    <div class="container col-md-8 col-sm-8 col-xs-12 spacer">
+        <div class="card" style="color: black; background-color: wheat; border-color: #1b1e21;">
+            <div class="card-header" style="color: black; background-color: #007bff; border-color: #1b1e21;">Saisir informations étudiant</div>
+            <div class="card-body">
+                <form th:action="@{saveEtudiant}" method="post" th:object="${etudiant}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="custom-control-label">Nom:</label>
+                        <input type="text" th:field="*{nom}" class="form-control" />
+                        <span th:errors="*{nom}" style="color: red;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control-label">Date Naissance:</label>
+                        <input type="date" th:field="*{dateNaissance}" class="form-control" />
+                        <span th:errors="*{dateNaissance}" style="color: red;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control-label">Email:</label>
+                        <input type="text" th:field="*{email}" class="form-control" />
+                        <span th:errors="*{email}" style="color: red;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control-label">Photo:</label>
+                        <input type="file" name="tof" class="form-control" />
+                        <span th:errors="*{photo}" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-dark">sauvegarder</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer" style="text-align: center; color: black; background-color: #007bff; border-color: #1b1e21;">Copyright Tout droit réservé - souleymane.ah@sancfis.net</div>
+        </div>
+    </div>
+</body>
+</html>
